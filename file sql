@@ -1,0 +1,14 @@
+--select C.categoryName, count(ProductID) as "Number of product"
+--from Categories C, Products P
+--where C.categoryID=P.categoryID
+--group by C.Categoryname
+
+
+
+
+
+select P.ProductName, SUM(D.Quantity)
+from Products P, Orders O, OrderDetails D
+where P.ProductID=D.ProductID and O.OrderID= D.OrderID and O.OrderDate between "1997-01-01" and "1997-01-31"
+group by P.ProductName
+order by SUM(D.Quantity) DESC;
