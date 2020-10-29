@@ -1,0 +1,41 @@
+--Q1)a)
+--select FIRST_NAME, LAST_NAME, salary
+--from employees
+--where salary>10000
+
+--b)
+--select FIRST_NAME, LAST_NAME, salary
+--from employees
+--where salary>10000 and salary<110000
+
+--c)
+--select POSTAL_CODE, LOCATION_ID, COUNTRY_NAME
+--from countries,locations
+--where locations.country_id = countries.country_id and POSTAL_CODE= 'YSW9T2';
+
+--d)
+--Select employee_id,first_name,last_name
+--From employees
+--where first_name >= 'king' and last_name <='Lee'
+
+--select e.last_name , d.department_name
+--from employees E , departments D
+--where e.department_id = d.department_id
+
+--select e.last_name , d.department_name
+--from employees E inner join departments D
+--on e.department_id = d.department_id
+
+--select e.last_name , d.department_name
+--from employees E left outer join departments D
+--on e.department_id = d.department_id
+
+--select d.department_name, count(E.employee_id)
+--from employees E left outer join departments D
+--on e.department_id = d.department_id
+--group by d.department_name;
+
+select d.department_name, count(E.employee_id)
+from employees E full outer join departments D
+on e.department_id = d.department_id
+group by d.department_name;
